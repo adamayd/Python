@@ -33,6 +33,6 @@ Follow these steps to start developing with this project:
 
 1. Ensure `pip` and `pipenv` are installed
 2. Clone repository: `git clone git@github.com:adamayd/Python`
-3. `cd` into the repository
+3. `cd` into the pgbackup subdirectory
 4. Activate virtualenv: `pipenv shell`
 5. Install dependencies: `pipenv install`
