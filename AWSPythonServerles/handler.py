@@ -1,5 +1,21 @@
 import json
 
+def squaredNum(event, context):
+    yourNum = event["queryStringParameters"]["number"]
+
+    yourSquaredNum = float(yourNum) ** 2
+
+    body = {
+        "message": "Here is the squared value of the number you inserted",
+        "yourNumber": yourSquaredNum
+    }
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response
 
 def hello(event, context):
     body = {
@@ -14,11 +30,17 @@ def hello(event, context):
 
     return response
 
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
+def shopping(event, context):
+    yourItem = event["queryStringParameters"]["item"]
+
+    body = {
+        "message": "Next time you go to the store you need the following item",
+        "yourItem": yourItem
     }
-    """
+
+    response = {
+        "statusCode": 200,
+        "body": json.dumps(body)
+    }
+
+    return response
