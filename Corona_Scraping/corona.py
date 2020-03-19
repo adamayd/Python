@@ -2,12 +2,27 @@
 
 import requests
 from bs4 import BeautifulSoup
-import random
+#import random
 
-URL = "https://coronavirus.jhu.edu/map.html"
+URL = "https://www.worldometers.info/coronavirus/"
 
-page = requests.get(URL)
+response = requests.get(URL)
 
-soup = bs4.BeautifulSoup(response.content, "html.parser")
+soup = BeautifulSoup(response.content, "html.parser")
 
-print(page.content)
+rows = soup.find('tbody').find_all('tr')
+
+corona_headers = [
+                    "Country",
+                    "Total Cases",
+                    "New Cases",
+                    "Total Deaths",
+                    "Total Recovered",
+                    "Active Cases",
+                    "Serious/Critical",
+                    "Top Cases"
+                ]
+
+for i in rows:
+    print("----> ", i)
+
